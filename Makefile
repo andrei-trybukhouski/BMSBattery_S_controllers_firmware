@@ -56,16 +56,17 @@ EXTRASRCS = \
 	display.c \
 	display_kingmeter.c
 
-HEADERS = BOdisplay.h ACAcommons.h ACAsetPoint.h ACAcontrollerState.h ACAeeprom.h  adc.h  brake.h  cruise_control.h  gpio.h  interrupts.h  main.h  motor.h  pwm.h  timers.h  uart.h  PAS.h  SPEED.h  
+HEADERS = BOdisplay.h ACAcommons.h ACAsetPoint.h ACAcontrollerState.h ACAeeprom.h  adc.h  brake.h  cruise_control.h  gpio.h  interrupts.h  main.h  motor.h  pwm.h  timers.h  uart.h  PAS.h  SPEED.h
 
 # The list of .rel files can be derived from the list of their source files
 RELS = $(EXTRASRCS:.c=.rel)
 
-INCLUDES = -I$(IDIR) -I. 
+INCLUDES = -I$(IDIR) -I.
 CFLAGS   = -m$(PLATFORM) --std-c99 --nolospre
 #ELF_FLAGS = --out-fmt-elf --debug
 ELF_FLAGS = --out-fmt-elf
-LIBS     = 
+#ELF_FLAGS = --out-fmt-ihx
+LIBS     =
 
 # This just provides the conventional target name "all"; it is optional
 # Note: I assume you set PNAME via some means not exhibited in your original file
@@ -119,6 +120,5 @@ clean:
 	@rm -rf main.bin
 	@rm -rf *.ihx
 	@rm -rf *.hex
-	
-	@echo "Done."
 
+	@echo "Done."
