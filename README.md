@@ -51,3 +51,6 @@ The corresponding thread in the german Pedelecforum [can be found here](https://
 ## Want to help
 
 There is always things to improve, don't hesitate to get involved if you have improvements in mind.
+
+## Notes
+tool-stm8binutils from platformio
