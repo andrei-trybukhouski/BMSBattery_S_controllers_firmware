@@ -49,6 +49,7 @@ import java.awt.event.MouseEvent;
 import java.nio.file.Paths;
 import java.util.Arrays;
 import javax.swing.JCheckBox;
+import javax.swing.UIManager;
 
 public class OSEC extends JFrame {
 
@@ -217,7 +218,7 @@ public class OSEC extends JFrame {
 
 		in.readLine();
 		in.readLine();
-		
+
 		rdbtnKtlcd.setSelected(Boolean.parseBoolean(in.readLine()));
 		rdbtnKingmeterJlcd.setSelected(Boolean.parseBoolean(in.readLine()));
 		in.readLine();
@@ -316,6 +317,9 @@ public class OSEC extends JFrame {
 	 */
 	public OSEC() throws IOException {
 
+		 Font oldLabelFont = UIManager.getFont("Label.font");
+         UIManager.put("Label.font", new Font("Tahoma", Font.PLAIN, 11));
+
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 960, 720);
 		contentPane = new JPanel();
@@ -333,24 +337,24 @@ public class OSEC extends JFrame {
 		lblTitle.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblTitle.setBounds(100, 4, 300, 34);
 		contentPane.add(lblTitle);
-		
+
 		JLabel lblOpenSourceFirmware = new JLabel("Open Source Firmware for E-Bike Controller");
 		lblOpenSourceFirmware.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblOpenSourceFirmware.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblOpenSourceFirmware.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		lblOpenSourceFirmware.setForeground(Color.BLUE);
 		lblOpenSourceFirmware.setBounds(100, 34, 300, 14);
 		contentPane.add(lblOpenSourceFirmware);
-		
+
 		JLabel lblRTFM = new JLabel("Read the friendly Wiki before using");
 		lblRTFM.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblRTFM.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblRTFM.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		lblRTFM.setForeground(Color.RED);
 		lblRTFM.setBounds(100, 50, 300, 14);
 		contentPane.add(lblRTFM);
-		
+
 		JLabel lblgray = new JLabel("Gray settings can be changed @ runtime (via BluOsec App)");
 		lblgray.setHorizontalAlignment(SwingConstants.RIGHT);
-		lblgray.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblgray.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		lblgray.setForeground(Color.GRAY);
 		lblgray.setBounds(100, 66, 300, 14);
 		contentPane.add(lblgray);
@@ -530,19 +534,19 @@ public class OSEC extends JFrame {
 		txtBatteryCurcala.setBounds(150, 250, 86, 20);
 		contentPane.add(txtBatteryCurcala);
 		txtBatteryCurcala.setColumns(10);
-		
+
 		JLabel lblGearRatio = new JLabel("Gear Ratio");
 		lblGearRatio.setBounds(15, 270, 131, 14);
 		lblGearRatio.setForeground(Color.GRAY);
 		contentPane.add(lblGearRatio);
-		
-		
+
+
 		GearRatio = new JTextField();
 		GearRatio.setText("64");
 		GearRatio.setColumns(10);
 		GearRatio.setBounds(150, 270, 86, 20);
 		contentPane.add(GearRatio);
-		
+
 		JLabel lblUndervoltageLimit = new JLabel("Undervoltage");
 		lblUndervoltageLimit.setBounds(15, 290, 121, 14);
 		lblUndervoltageLimit.setForeground(Color.GRAY);
@@ -564,7 +568,7 @@ public class OSEC extends JFrame {
 		txtOvervoltage.setBounds(150, 310, 86, 20);
 		contentPane.add(txtOvervoltage);
 		txtOvervoltage.setColumns(3);
-		
+
 		JLabel lblBatVolCal = new JLabel("Voltage Calibration");
 		lblBatVolCal.setBounds(15, 330, 121, 14);
 		lblBatVolCal.setForeground(Color.GRAY);
@@ -884,11 +888,11 @@ public class OSEC extends JFrame {
 		txtSpeedlimitWithThrottleOverride.setColumns(10);
 
 		JLabel lblRideMode = new JLabel("Ride Options");
-		lblRideMode.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblRideMode.setFont(new Font("Tahoma", Font.BOLD, 10));
 		lblRideMode.setBounds(15, 430, 86, 20);
 		lblRideMode.setForeground(Color.GRAY);
 		contentPane.add(lblRideMode);
-		
+
 		cbDynAssist = new JCheckBox("Dynamic Assist Level");
 		cbDynAssist.setSelected(false);
 		cbDynAssist.setBounds(15, 455, 200, 20);
@@ -979,13 +983,13 @@ public class OSEC extends JFrame {
 		cbExternalSpeedSensor.setBounds(250, 495, 250, 20);
 		cbExternalSpeedSensor.setForeground(Color.GRAY);
 		contentPane.add(cbExternalSpeedSensor);
-		
+
 		cbSwitch360 = new JCheckBox("Switch to 360\u00B0 interpol. @ 75 ERPS");
 		cbSwitch360.setSelected(false);
 		cbSwitch360.setBounds(250, 515, 250, 20);
 		cbSwitch360.setForeground(Color.GRAY);
 		contentPane.add(cbSwitch360);
-		
+
 		cbHighSpeedMotor = new JCheckBox("High Speed Motor");
 		cbHighSpeedMotor.setSelected(false);
 		cbHighSpeedMotor.setBounds(250, 535, 250, 20);
@@ -997,19 +1001,19 @@ public class OSEC extends JFrame {
 		cbAntiJitter.setBounds(250, 575, 250, 20);
 		cbAntiJitter.setForeground(Color.ORANGE);
 		contentPane.add(cbAntiJitter);
-		
+
 		cbDisableInterpolation = new JCheckBox("Disable interpolation");
 		cbDisableInterpolation.setSelected(false);
 		cbDisableInterpolation.setBounds(250, 595, 250, 20);
 		cbDisableInterpolation.setForeground(Color.ORANGE);
 		contentPane.add(cbDisableInterpolation);
-		
+
 		cbDisable60DegInterpolation = new JCheckBox("Disable 60\u00B0 interpolation");
 		cbDisable60DegInterpolation.setSelected(false);
 		cbDisable60DegInterpolation.setBounds(250, 615, 250, 20);
 		cbDisable60DegInterpolation.setForeground(Color.ORANGE);
 		contentPane.add(cbDisable60DegInterpolation);
-		
+
 		cbPwmOff = new JCheckBox("PWM off @coast (experimental)");
 		cbPwmOff.setSelected(false);
 		cbPwmOff.setBounds(250, 635, 250, 20);
@@ -1021,10 +1025,10 @@ public class OSEC extends JFrame {
 		cbDcNull.setBounds(250, 655, 250, 20);
 		cbDcNull.setForeground(Color.RED);
 		contentPane.add(cbDcNull);
-		
+
 
 		lblDiplayType = new JLabel("Display Type");
-		lblDiplayType.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblDiplayType.setFont(new Font("Tahoma", Font.BOLD, 10));
 		lblDiplayType.setBounds(600, 400, 86, 20);
 		contentPane.add(lblDiplayType);
 
@@ -1060,7 +1064,7 @@ public class OSEC extends JFrame {
 		contentPane.add(cbResetEeprom);
 
 		JButton btnWriteoptionsbyte = new JButton("Unlock Controller");
-		btnWriteoptionsbyte.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnWriteoptionsbyte.setFont(new Font("Tahoma", Font.BOLD, 10));
 		btnWriteoptionsbyte.setForeground(Color.RED);
 		btnWriteoptionsbyte.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -1365,7 +1369,7 @@ public class OSEC extends JFrame {
 				}
 			}
 		});
-		btnWriteConfiguration.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnWriteConfiguration.setFont(new Font("Tahoma", Font.BOLD, 10));
 		btnWriteConfiguration.setForeground(Color.BLUE);
 		btnWriteConfiguration.setBounds(600, 520, 320, 40);
 		contentPane.add(btnWriteConfiguration);
