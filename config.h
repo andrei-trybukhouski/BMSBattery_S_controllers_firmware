@@ -18,8 +18,8 @@
 #define BATTERY_VOLTAGE_MIN_VALUE 126
 #define BATTERY_CURRENT_MAX_VALUE 130L
 #define PHASE_CURRENT_MAX_VALUE 200L
-#define REGEN_CURRENT_MAX_VALUE 100L
-#define MOTOR_ROTOR_DELTA_PHASE_ANGLE_RIGHT 215
+#define REGEN_CURRENT_MAX_VALUE 50L
+#define MOTOR_ROTOR_DELTA_PHASE_ANGLE_RIGHT 252
 #define current_cal_a 100
 #define LEVEL_1 10
 #define LEVEL_2 20
@@ -32,23 +32,25 @@
 #define RAMP_END 1500
 #define P_FACTOR 0.5
 #define I_FACTOR 0.1
-#define GEAR_RATIO 23L
+#define GEAR_RATIO 15L
 #define PAS_THRESHOLD 1.7
 #define RAMP_START 64000
 #define limit_with_throttle_override 40
 #define CORRECTION_AT_ANGLE 127
 #define ANGLE_4_0 1
-#define ANGLE_6_60 43
-#define ANGLE_2_120 86
+#define ANGLE_6_60 213
+#define ANGLE_2_120 171
 #define ANGLE_3_180 128
 #define BLUOSEC
-#define ANGLE_1_240 171
-#define ANGLE_5_300 213
+#define ANGLE_1_240 86
+#define ANGLE_5_300 43
 #define TQS_CALIB 0.0
-#define ACA 128
-#define EEPROM_INIT_MAGIC_BYTE 137 // makes sure (chance of fail 1/255) eeprom is invalidated after flashing new config
+#define ACA 4488
+#define EEPROM_INIT_MAGIC_BYTE 192 // makes sure (chance of fail 1/255) eeprom is invalidated after flashing new config
 #define ADC_BATTERY_VOLTAGE_K 69
 #define ACA_EXPERIMENTAL 128
 #define BATTERY_VOLTAGE_MAX_VALUE 156
 
 #endif /* CONFIG_H_ */
+//1 43 86 128 171
+//213.86 43.171
