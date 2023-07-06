@@ -160,6 +160,14 @@ uint16_t aca_setpoint(uint16_t ui16_time_ticks_between_pas_interrupt, uint16_t s
 	
 	// check for brake --> set regen current
 	if (brake_is_set()) {
+
+		if (((ui16_aca_experimental_flags & PWM_AUTO_OFF) == PWM_AUTO_OFF) && ui16_virtual_erps_speed >0 ) {
+			//enable PWM if disabled 
+			if (!uint_PWM_Enable ){
+				TIM1_CtrlPWMOutputs(ENABLE);
+				uint_PWM_Enable = 1;
+			}
+		}
 		
 		controll_state_temp = 255;
 		//Current target based on regen assist level
@@ -201,7 +209,7 @@ uint16_t aca_setpoint(uint16_t ui16_time_ticks_between_pas_interrupt, uint16_t s
 			controll_state_temp -= 8;
 		}
 		
-	} else {
+	} else { //no break pressed
 
 		uint32_current_target = ui16_current_cal_b; // reset target to zero
 		controll_state_temp = 0;
